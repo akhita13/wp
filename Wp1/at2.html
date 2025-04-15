@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Tracker</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Attendance Tracker</h2>
+        <input type="text" id="subject" placeholder="Subject Name">
+        <input type="number" id="attended" placeholder="Classes Attended">
+        <input type="number" id="missed" placeholder="Classes Missed">
+        <button onclick="addSubject()">Add Subject</button>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Attended</th>
+                    <th>Missed</th>
+                    <th>Total</th>
+                    <th>Percentage</th>
+                    <th>Classes Needed</th>
+                </tr>
+            </thead>
+            <tbody id="attendanceTable"></tbody>
+        </table>
+        
+        <h3>Overall Attendance: <span id="overallAttendance">0%</span></h3>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVA ACADEMICS</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style> #map {
+        height: 500px;
+        width: 100%;
+    }
+    
+    * {box-sizing: border-box}
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        button:hover {
+            opacity: 1;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            padding: 14px 20px;
+            background-color: #f44336;
+        }
+
+        /* Float cancel and signup buttons and add an equal width */
+        .cancelbtn, .signupbtn {
+            float: left;
+            width: 50%;
+        }
+
+        /* Add padding to container elements */
+        .container {
+            padding: 16px;
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Change styles for cancel button and signup button on extra small screens */
+        @media screen and (max-width: 300px) {
+            .cancelbtn, .signupbtn {
+                width: 100%;
+            }
+        }
+
+        /* Error message styling */
+        .error {
+            color: red;
+            font-size: 14px;
+        }</style>
+</head>
+<body>
+    <section class="header">
+        <nav>
+          
+                 <div class="nav-links">
+                    <ul>
+                    <li><a href = "#home">HOME</a><li>
+                    <li><a href = "#course">COURSE</a></li>
+                    <li><a href = "#facilities">FACILITIES</a></li>
+                    <li><a href = "#review">REVIEWS</a></li>
+                    <li><a href = "#aboutus">ABOUT US</a></li>
+                    <li><a href = "#contact" >CONTACT</a></li>
+                    </ul>
+                </div>
+        </nav>
+        <div class ="textbox">
+        <h1> AVA   ACADEMICS</h1>
+        <p>We are a web-based platform for managing student data, attendance, grades, and communication. With an intuitive interface and powerful features, our system ensures efficiency, accuracy, and ease of use, making academic administration seamless. </p>
+      
+        </div>
+    </section>
+</section>
+
+
+<form id="signupForm" action="register1.html" style="border:1px solid #ccc">
+    <div class="container"id="home">
+        <h1>Sign Up</h1>
+        <p>Please fill in this form to sign up for our courses.</p>
+        <hr>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" id="email" placeholder="Enter Email" name="email" required>
+        <span id="emailError" class="error"></span>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" id="psw" placeholder="Enter Password" name="psw" required>
+        <span id="passwordError" class="error"></span>
+
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" id="psw-repeat" placeholder="Repeat Password" name="psw-repeat" required>
+        <span id="confirmPasswordError" class="error"></span>
+
+        <label>
+            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        </label>
+
+        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+        <div class="clearfix">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <button type="submit" class="signupbtn">Sign Up</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    document.getElementById("signupForm").addEventListener("submit", function(event) {
+        let isValid = true;
+
+        // Get form elements
+        let email = document.getElementById("email");
+        let password = document.getElementById("psw");
+        let confirmPassword = document.getElementById("psw-repeat");
+
+        // Get error message elements
+        let emailError = document.getElementById("emailError");
+        let passwordError = document.getElementById("passwordError");
+        let confirmPasswordError = document.getElementById("confirmPasswordError");
+
+        // Reset previous error messages
+        emailError.textContent = "";
+        passwordError.textContent = "";
+        confirmPasswordError.textContent = "";
+
+        // Validate email
+        let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(email.value)) {
+            emailError.textContent = "Please enter a valid email address.";
+            isValid = false;
+        }
+
+        // Validate password length
+        if (password.value.length < 6) {
+            passwordError.textContent = "Password must be at least 6 characters.";
+            isValid = false;
+        }
+
+        // Validate password match
+        if (password.value !== confirmPassword.value) {
+            confirmPasswordError.textContent = "Passwords do not match.";
+            isValid = false;
+        }
+
+        // Prevent form submission if validation fails
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+</script>
+
+
+
+    
+   
+            <!--COURSE-->
+            <section class="course" id="course">
+                <h1>COURSE WE OFFER</h1>
+                <p>What Courses we offer to our students.</p>
+                <div class="row">
+                    <div class="course-col">
+                        <h2>MATHS</h2>
+                        <p>We offer good Mathematics courses to our students in odrder to enhance there mathematics skills.We offer mathematics for seondary school students.We provide different videos to our students.</p>
+                    </div>
+                    <div class="course-col">
+                        <h2>SCIENCE</h2>
+                        <p>We offer good Science courses to our students in odrder to enhance there mathematics skills.We offer mathematics for seondary school students.We provide different videos to our students.</p>
+                    </div>
+                    <div class="course-col">
+                        <h2>HISTORY</h2>
+                        <p>We offer good History courses to our students in odrder to enhance there mathematics skills.We offer mathematics for seondary school students.We provide different videos to our students.We provide good information about the current affairs .</p>
+                    </div>
+                </div>
+            </section>
+        <section class="ourfacility" id="facilities">
+            <h1>OUR FACILITIES</h1>
+            <p>What facilities we offer to our students .</p>
+            <div class="row">
+                <div class="facilities-col">
+                <img src="facilities1.jpg" alt="">
+                <a href = "details.php"><h2>Personal Details</h2></a>
+                <p>We keeps the personal details of our students. We make a updated personal according to the reports of each student.</p>
+            </div>
+               <div class="facilities-col">
+                <img src="facilities2.jpg" alt="">
+                <a href="record.html"><h2>Academic Record Management</h2></a>
+                <p>We manage the academic records and marks to enhance it day by day . We provide test every week to make a good change in the academics.</p>
+               </div>
+                <div class="facilities-col">
+                <img src="facilities3.jpg">
+                <a href ="at2.html"><h2>Attendence Tracker</h2></a>
+                <p>We provide a facility to track the attendence.We maintain the record to keep the attendence great throughout the year</p>
+            </div>
+            </div>
+        
+        </section>
+        <section class="reviews" id="review">
+            <h1>REVIEWS</h1>
+            <p>What our users review about us </p>
+            <div class="row">
+                <div class="reviews-col">
+                <img src="reviews1.jpg" alt="">
+                <h2>Dr.Riya</h2>
+                <p>My Child has made a good progress in the academics . He is now more engaged in scoring good marks.</p>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+            </div>
+               <div class="reviews-col">
+                <img src="reviews2.jpg" alt="">
+                <h2>Mrs.Nita</h2>
+                <p>My child has make a good improvement in geting a good attendence in school. He is now interested in learning history</p>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+               </div>
+               <div class="reviews-col">
+                <img src="reviews3.jpg" alt="">
+                <h2>Mr. Vedant</h2>
+                <p>Students are getting more confiedence in learning maths.They have improved in science part also.</p>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+               </div>
+            </div>
+            
+            <section class="ABOUT US" id="aboutus">
+                <h1>ABOUT US</h1>
+                <p>Know more About Us</p>
+                <div class="row">
+                    <div class="about-col">
+                    <img src="aboutus1.jpg" alt="">
+                    <h2>OUR MISSION</h2>
+                    <p>"We aim to streamline student management by providing an intuitive platform that simplifies academic tracking, attendance, and communication between students, teachers, and administrators</p>
+                </div>
+                   <div class="about-col">
+                    <img src="aboutus2.jpg" alt="">
+                    <h2>OUR FEATURES</h2>
+                    <p>"Our system offers seamless student enrollment, grade management, attendance tracking, and real-time updates to ensure efficient academic administration"
+                    </p>
+                   </div>
+                   <div class="about-col">
+                    <img src="aboutus3.jpg" alt="">
+                    <h2>WHY CHOOSE US </h2>
+                    <p>"With a user-friendly interface, secure data management, and advanced analytics, our platform enhances productivity and helps institutions manage student information with ease"</p>
+                   </div>
+                </div>
+
+            </section>
+            <section class="EXPLORE MORE">
+                <h1>EXPLORE MORE</h1>
+                <p>Explore our recommended videos </p>
+                <div class="row">
+                    <div class="exp-col">
+                        <h2>Explore Maths</h2>
+                        <iframe width="490" height="490"
+                        src="https://www.youtube.com/embed//watch?v=JbhBdOfMEPs&list=PLybg94GvOJ9FoGQeUMFZ4SWZsr30jlUYK">
+                        </iframe>
+                </div>
+                   <div class="exp-col">
+                    <h2>Explore Science </h2>
+                    <iframe width="490" height="490"
+                    src="https://www.youtube.com/embed//N7SbiJXUANo">
+                    </iframe>
+                </div>
+                   <div class="exp-col">
+                    <h2>Explore History</h2>
+                    <iframe width="500" height="500"
+                    src="https://www.youtube.com/embed/tsxmyL7TUJg">
+                    </iframe>
+                </div>
+            </section>
+            
+                <div class="container">
+                
+             <h1>SEE OUR LOCATION</h1>
+                            
+                                <div id="map"></div>
+                               
+                                <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+                                <script>
+                                    var map = L.map('map').setView([18.990373445591565, 73.12764863948898], 13); // Coordinates for pillai
+                                   
+                                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                        attribution: '© OpenStreetMap contributors'
+                                    }).addTo(map);
+                                   
+                                    var marker = L.marker([18.990373445591565, 73.12764863948898]).addTo(map)
+                                        .bindPopup("Hello! This is a marker.")
+                                        .openPopup();
+                                </script>
+                            </div>
+                        </div>
+            
+
+
+
+
+
+          
+                <section class="cta" id="contact">
+                    <h1>ENROLL FOR VARIOUS COURSES</h1>
+                    <a href="contact.html" class="hero-btn">CONTACT US!!
+                    </a> <div class="icon ">
+                        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-google"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
+                    </div>
+                    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+                </section>
+            
+                
+</body>
+</html>

@@ -1,0 +1,511 @@
+/* Base Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* Header Section with Parallax Effect */
+.header {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%), url(background.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Navigation Bar with Smooth Transition */
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.5s ease;
+}
+
+nav.scrolled {
+    padding: 1% 6%;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+nav img {
+    width: 150px;
+    transition: transform 0.3s ease;
+}
+
+nav img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-links ul li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: mediumturquoise;
+    display: block;
+    margin: auto;
+    transition: width 0.3s ease;
+}
+
+.nav-links ul li:hover::after {
+    width: 100%;
+}
+
+.nav-links ul li a {
+    color: mediumturquoise;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links ul li a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(72, 209, 204, 0.7);
+}
+
+/* Hero Text Box */
+.textbox {
+    width: 100%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translate(-50%, -30%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.textbox h1 {
+    font-size: 62px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    animation: textGlow 3s infinite alternate;
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px mediumturquoise;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px mediumturquoise, 0 0 40px mediumturquoise;
+    }
+}
+
+.textbox p {
+    margin: 20px 0;
+    font-size: 24px;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* Hero Button with Hover Effect */
+.hero-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 12px 34px;
+    font-size: 16px;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.hero-btn:hover {
+    color: #000;
+    background: mediumturquoise;
+    border-color: mediumturquoise;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.hero-btn:hover::before {
+    left: 100%;
+}
+
+/* Form Styles with Enhanced Interactions */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+    box-shadow: 0 0 10px rgba(72, 209, 204, 0.5);
+    transform: scale(1.01);
+}
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.cancelbtn {
+    background-color: #f44336;
+}
+
+.cancelbtn:hover {
+    background-color: #d32f2f;
+}
+
+.signupbtn:hover {
+    background-color: #038857;
+}
+
+.container {
+    padding: 16px;
+    animation: fadeIn 1s ease-in;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Section Styling with Hover Effects */
+.section-title {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    background: mediumturquoise;
+    bottom: -10px;
+    left: 25%;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.section-title:hover::after {
+    width: 80%;
+    left: 10%;
+}
+
+/* Course Cards with 3D Effect */
+.course {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.row {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.course-col, .facilities-col, .reviews-col, .about-col, .exp-col {
+    flex-basis: 31%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.course-col {
+    background: linear-gradient(135deg, #01a2f2, #0178f2);
+}
+
+.ourfacility{
+    justify-content: center;
+    text-align: center;
+}
+.reviews{
+    text-align: center;
+}
+
+.facilities-col {
+    background: linear-gradient(135deg, #3ff691, #3fd691);
+}
+
+.reviews-col {
+    background: linear-gradient(135deg, #f68b3f, #f66b3f);
+}
+
+.about-col {
+    background: linear-gradient(135deg, #b9d336, #a3c218);
+}
+
+.exp-col {
+    background: linear-gradient(135deg, #36373729, #56575729);
+}
+
+.course-col:hover, .facilities-col:hover, .reviews-col:hover, .about-col:hover, .exp-col:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.course-col::before, .facilities-col::before, .reviews-col::before, .about-col::before, .exp-col::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.course-col:hover::before, .facilities-col:hover::before, .reviews-col:hover::before, .about-col:hover::before, .exp-col:hover::before {
+    left: 100%;
+}
+
+/* Image Hover Effects */
+.facilities-col img, .reviews-col img, .about-col img {
+    width: 100%;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    filter: brightness(90%);
+}
+
+.facilities-col:hover img, .reviews-col:hover img, .about-col:hover img {
+    transform: scale(1.03);
+    filter: brightness(100%);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Star Rating Animation */
+.checked {
+    color: rgb(4, 239, 251);
+    text-shadow: 0 0 5px rgba(4, 239, 251, 0.7);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* CTA Section with Parallax */
+.cta {
+    margin: 100px auto;
+    width: 80%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%), url(contact.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
+}
+
+.cta h1 {
+    color: #fff;
+    margin-bottom: 40px;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.cta .hero-btn {
+    position: relative;
+    z-index: 2;
+}
+
+/* Social Icons Animation */
+.icons a {
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.icon ion-icon {
+    color: #fff;
+    font-size: 30px;
+    padding-left: 14px;
+    padding-top: 8px;
+    transition: all 0.5s ease;
+}
+
+.icon ion-icon:hover {
+    color: cyan;
+    transform: translateY(-5px) scale(1.2);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1200px) {
+    .row {
+        flex-direction: column;
+    }
+    
+    .course-col, .facilities-col, .reviews-col, .about-col, .exp-col {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .textbox h1 {
+        font-size: 48px;
+    }
+    
+    .textbox p {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links ul li {
+        display: block;
+        padding: 10px 0;
+    }
+    
+    .nav-links {
+        position: absolute;
+        background: rgba(0,0,0,0.9);
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: right 0.5s ease;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .textbox h1 {
+        font-size: 36px;
+    }
+    
+    .hero-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Floating Animation for Visual Interest */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Additional Glow Effects */
+.glow {
+    transition: text-shadow 0.3s ease;
+}
+
+.glow:hover {
+    text-shadow: 0 0 10px rgba(72, 209, 204, 0.7);
+}
